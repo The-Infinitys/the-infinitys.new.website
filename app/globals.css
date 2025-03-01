@@ -33,6 +33,8 @@
   --header-color: color-mix(in srgb,
       color-mix(in srgb, var(--background), #888888 10%),
       transparent 30%);
+  --navigation-color: color-mix(in srgb, var(--background), #888888 5%);
+  --navigation-width: 10rem;
   --footer-color: color-mix(in srgb, var(--background), #888888 5%);
 }
 
@@ -53,6 +55,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   top: 0;
   left: 0;
   padding: 0.5rem;
@@ -67,6 +70,81 @@ header {
 .header-infinite-logo {
   height: calc(var(--header-height) * 0.6);
   width: auto;
+}
+
+#header-navigation {
+  display: flex;
+  padding: 0.5rem;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  height: calc(100% - var(--header-height));
+  width: var(--navigation-width);
+  background-color: var(--header-color);
+  transition: right 0.3s ease;
+}
+
+#header-navigation a {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  color: var(--foreground);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  background: var(--header-color);
+  backdrop-filter: blur(8px), saturate(180%);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#header-navigation-button {
+  position: relative;
+  margin-left: auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation-icons {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.navigation-icons .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s cubic-bezier(0.5, 0, 0.5, 1),
+    right 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+}
+
+.navigation-icons .hidden {
+  visibility: visible !important;  /* Change for navigation icons */
+  opacity: 0;
+  .open{
+    right: var(--header-height);
+  }
+  .close{
+    right: calc(-1 * var(--header-height));
+  }
+}
+
+.navigation-icons .visible {
+  visibility: visible;
+  opacity: 1;
+  .open{
+    right: calc(-1 * var(--header-height));
+  }
+  .close{
+    right: var(--header-height);
+  }
 }
 
 main {
