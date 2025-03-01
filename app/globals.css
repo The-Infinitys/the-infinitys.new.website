@@ -2,6 +2,23 @@
 
 /* Global CSS */
 
+/* Reset CSS margin and paddings */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set up animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 /* Set up color scheme */
 :root {
   --background: #f8f8f8;
@@ -149,7 +166,6 @@ header {
 
 main {
   margin-top: var(--header-height);
-  padding: 1rem;
   min-height: calc(100vh - var(--header-height));
 }
 

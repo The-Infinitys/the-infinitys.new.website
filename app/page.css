@@ -1,0 +1,36 @@
+@import url(./globals.css);
+
+section.first {
+  height: calc(100vh - var(--header-height));
+}
+section.first .inf-icon {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25vw;
+  height:auto;
+  opacity:0.5;
+  animation: fadeIn-for-inflogo 2s ease-in-out;
+}
+section.first .inf-logo {
+  position:absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height:auto;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out;
+  animation-fill-mode: forwards; 
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn-for-inflogo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
