@@ -1,9 +1,9 @@
 @import url(./globals.css);
 
-section.first {
+.first-view {
   height: calc(100vh - var(--header-height));
 }
-section.first .inf-icon {
+.first-view .inf-icon {
   position:absolute;
   top: 50%;
   left: 50%;
@@ -13,7 +13,7 @@ section.first .inf-icon {
   opacity:0.5;
   animation: fadeIn-for-inflogo 2s ease-in-out;
 }
-section.first .inf-logo {
+.first-view .inf-logo {
   position:absolute;
   top: 75%;
   left: 50%;
@@ -24,6 +24,27 @@ section.first .inf-logo {
   animation: fadeIn 2s ease-in-out;
   animation-fill-mode: forwards; 
   animation-delay: 2s;
+}
+
+section{
+  border-top: 1px solid var(--foreground);
+  padding: 20px;
+  margin: 20px;
+  width: calc(100% - 40px);
+  line-height: 1.5;
+}
+
+section h1{
+  font-size: 2rem;
+  margin: 1rem;
+}
+section h2{
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+section p{
+  font-size: 1rem;
+  margin: 1rem;
 }
 
 @keyframes fadeIn-for-inflogo {

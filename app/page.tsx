@@ -12,18 +12,26 @@ export const metadata: Metadata = {
   description: "Created by Next.js",
 };
 
+function contents() {
+  return (
+    <>
+      <section className="second">
+        <div>
+          <Image src={infinite_icon} alt={""} />
+        </div>
+      </section>
+    </>);
+}
+
 export default function Home() {
   return (
     <>
-      <section className="first">
-      <Image className="inf-icon" src={infinite_icon} alt="" />
-      <Image className="dark-mode inf-logo" src={infinite_logo_white} alt="" />
-      <Image className="light-mode inf-logo" src={infinite_logo_black} alt="" />
-      </section>
-      <section className="about">
-        <h2>About Us</h2>
-        <p>We are a team of passionate developers and designers.</p>
-      </section>
+      <div className="first-view">
+        <Image className="inf-icon" src={infinite_icon} alt="" />
+        <Image className="dark-mode inf-logo" src={infinite_logo_white} alt="" />
+        <Image className="light-mode inf-logo" src={infinite_logo_black} alt="" />
+      </div>
+      {contents()}
     </>
   );
 }
