@@ -3,7 +3,7 @@
 /* Global CSS */
 
 /* Reset CSS margin and paddings */
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,8 +14,69 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes rainbow-background {
+  0% {
+    background-color: #f00;
+  }
+
+  16.7% {
+    background-color: #ff0;
+  }
+
+  33.3% {
+    background-color: #0f0;
+  }
+
+  50% {
+    background-color: #0ff;
+  }
+
+  66.7% {
+    background-color: #00f;
+  }
+
+  83.3% {
+    background-color: #f0f;
+  }
+
+  100% {
+    background-color: #f00;
+  }
+}
+
+@keyframes rainbow-background-footer {
+  0% {
+    background-color: color-mix(in srgb, var(--footer-color), #f00 10%);
+  }
+
+  16.7% {
+    background-color: color-mix(in srgb, var(--footer-color), #ff0 10%);
+  }
+
+  33.3% {
+    background-color: color-mix(in srgb, var(--footer-color), #0f0 10%);
+  }
+
+  50% {
+    background-color: color-mix(in srgb, var(--footer-color), #0ff 10%);
+  }
+
+  66.7% {
+    background-color: color-mix(in srgb, var(--footer-color), #00f 10%);
+  }
+
+  83.3% {
+    background-color: color-mix(in srgb, var(--footer-color), #f0f 10%);
+  }
+
+  100% {
+    background-color: color-mix(in srgb, var(--footer-color), #f00 10%);
   }
 }
 
@@ -64,6 +125,7 @@ body {
 /* Configure header */
 
 header {
+  z-index: 1000;
   background: var(--header-color);
   backdrop-filter: blur(8px), saturate(180%);
   width: 100%;
@@ -143,12 +205,15 @@ header {
 }
 
 .navigation-icons .hidden {
-  visibility: visible !important;  /* Change for navigation icons */
+  visibility: visible !important;
+  /* Change for navigation icons */
   opacity: 0;
-  .open{
+
+  .open {
     right: var(--header-height);
   }
-  .close{
+
+  .close {
     right: calc(-1 * var(--header-height));
   }
 }
@@ -156,10 +221,12 @@ header {
 .navigation-icons .visible {
   visibility: visible;
   opacity: 1;
-  .open{
+
+  .open {
     right: calc(-1 * var(--header-height));
   }
-  .close{
+
+  .close {
     right: var(--header-height);
   }
 }
@@ -170,11 +237,17 @@ main {
 }
 
 footer {
-  background: var(--footer-color);
   width: 100%;
   min-height: 12rem;
-  display: fixed;
   bottom: 0;
   left: 0;
   padding: 1rem;
+  animation: rainbow-background-footer 15s ease infinite;
+}
+
+/* Hide elements on small screens */
+@media (max-width: 600px) {
+  .header-infinite-logo {
+    display: none;
+  }
 }

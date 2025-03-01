@@ -3,46 +3,52 @@
 .first-view {
   height: calc(100vh - var(--header-height));
 }
+
 .first-view .inf-icon {
-  position:absolute;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 25vw;
-  height:auto;
-  opacity:0.5;
+  height: auto;
+  opacity: 0.5;
   animation: fadeIn-for-inflogo 2s ease-in-out;
 }
+
 .first-view .inf-logo {
-  position:absolute;
+  position: absolute;
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50vw;
-  height:auto;
+  height: auto;
   opacity: 0;
   animation: fadeIn 2s ease-in-out;
-  animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
   animation-delay: 2s;
 }
 
-section{
+section {
+  position: relative;
   border-top: 1px solid var(--foreground);
-  padding: 20px;
-  margin: 20px;
-  width: calc(100% - 40px);
+  margin: 5rem;
+  padding: 5rem;
+  width: calc(100% - 10rem);
+  min-height: 100vh;
   line-height: 1.5;
 }
 
-section h1{
+section h1 {
   font-size: 2rem;
   margin: 1rem;
 }
-section h2{
+
+section h2 {
   font-size: 1.5rem;
   margin: 1rem;
 }
-section p{
+
+section p {
   font-size: 1rem;
   margin: 1rem;
 }
@@ -51,6 +57,7 @@ section p{
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 0.5;
   }
