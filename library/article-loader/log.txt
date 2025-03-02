@@ -1,0 +1,651 @@
+Log created at: 2025-03-02 08:36:21.315255637 UTC
+Fetching GitHub repos...
+Repo: app - URL: https://github.com/The-Infinitys/app
+Repo: app.linux.inf-system-monitor - URL: https://github.com/The-Infinitys/app.linux.inf-system-monitor
+Repo: article-2024 - URL: https://github.com/The-Infinitys/article-2024
+Repo: article-2025 - URL: https://github.com/The-Infinitys/article-2025
+Repo: article-template - URL: https://github.com/The-Infinitys/article-template
+Repo: inf-docker-desktop - URL: https://github.com/The-Infinitys/inf-docker-desktop
+Repo: inf-fetch - URL: https://github.com/The-Infinitys/inf-fetch
+Repo: inf-linux-os - URL: https://github.com/The-Infinitys/inf-linux-os
+Repo: InfinitySpirit - URL: https://github.com/The-Infinitys/InfinitySpirit
+Repo: learn-rust - URL: https://github.com/The-Infinitys/learn-rust
+Repo: Metal-Fonts - URL: https://github.com/The-Infinitys/Metal-Fonts
+Repo: Scratch - URL: https://github.com/The-Infinitys/Scratch
+Repo: The-Infinitys - URL: https://github.com/The-Infinitys/The-Infinitys
+Repo: the-infinitys.github.io - URL: https://github.com/The-Infinitys/the-infinitys.github.io
+Repo: the-infinitys.new.website - URL: https://github.com/The-Infinitys/the-infinitys.new.website
+Repo: wallpaper - URL: https://github.com/The-Infinitys/wallpaper
+Fetched 16 repos
+Found 2 article repos
+Repo: article-2024 - URL: https://github.com/The-Infinitys/article-2024
+Downloaded tmp/article-2024/01/articles.json to "tmp/article-2024/01/articles.json"
+Downloaded tmp/article-2024/02/articles.json to "tmp/article-2024/02/articles.json"
+Downloaded tmp/article-2024/03/articles.json to "tmp/article-2024/03/articles.json"
+Downloaded tmp/article-2024/04/articles.json to "tmp/article-2024/04/articles.json"
+Downloaded tmp/article-2024/05/articles.json to "tmp/article-2024/05/articles.json"
+Downloaded tmp/article-2024/06/articles.json to "tmp/article-2024/06/articles.json"
+Downloaded tmp/article-2024/07/articles.json to "tmp/article-2024/07/articles.json"
+Downloaded tmp/article-2024/08/articles.json to "tmp/article-2024/08/articles.json"
+Downloaded tmp/article-2024/09/articles.json to "tmp/article-2024/09/articles.json"
+Downloaded tmp/article-2024/10/articles.json to "tmp/article-2024/10/articles.json"
+Downloaded tmp/article-2024/11/articles.json to "tmp/article-2024/11/articles.json"
+Downloaded tmp/article-2024/12/articles.json to "tmp/article-2024/12/articles.json"
+Repo: article-2025 - URL: https://github.com/The-Infinitys/article-2025
+Downloaded tmp/article-2025/01/articles.json to "tmp/article-2025/01/articles.json"
+Downloaded tmp/article-2025/02/articles.json to "tmp/article-2025/02/articles.json"
+Downloaded tmp/article-2025/03/articles.json to "tmp/article-2025/03/articles.json"
+Downloaded tmp/article-2025/04/articles.json to "tmp/article-2025/04/articles.json"
+Downloaded tmp/article-2025/05/articles.json to "tmp/article-2025/05/articles.json"
+Downloaded tmp/article-2025/06/articles.json to "tmp/article-2025/06/articles.json"
+Downloaded tmp/article-2025/07/articles.json to "tmp/article-2025/07/articles.json"
+Downloaded tmp/article-2025/08/articles.json to "tmp/article-2025/08/articles.json"
+Downloaded tmp/article-2025/09/articles.json to "tmp/article-2025/09/articles.json"
+Downloaded tmp/article-2025/10/articles.json to "tmp/article-2025/10/articles.json"
+Downloaded tmp/article-2025/11/articles.json to "tmp/article-2025/11/articles.json"
+Downloaded tmp/article-2025/12/articles.json to "tmp/article-2025/12/articles.json"
+Read data from tmp/article-2025/06/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 06
+Read data from tmp/article-2025/08/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 08
+Read data from tmp/article-2025/04/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 04
+Read data from tmp/article-2025/01/articles.json: {
+  "articles": [
+    {
+      "date": "2025/01/01",
+      "id": "happy-new-year",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "賀正新年"
+    }
+  ]
+}
+Year: 2025, Month: 01
+Read data from tmp/article-2025/10/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 10
+Read data from tmp/article-2025/11/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 11
+Read data from tmp/article-2025/02/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 02
+Read data from tmp/article-2025/07/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 07
+Read data from tmp/article-2025/12/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 12
+Read data from tmp/article-2025/05/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 05
+Read data from tmp/article-2025/03/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 03
+Read data from tmp/article-2025/09/articles.json: {
+  "articles": []
+}
+Year: 2025, Month: 09
+Read data from tmp/article-2024/06/articles.json: {
+  "articles": [
+    {
+      "date": "2024/06/27",
+      "id": "The-Infinitys-777-follower-on-Scratch",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Scratchで777フォロワー!!!!!!"
+    },
+    {
+      "date": "2024/06/21",
+      "id": "crazy-Tokyo-gubernatorial-election-2024",
+      "thumbnail": "thumbnail.jpg",
+      "title": "ヤバ過ぎる今年の東京都知事選挙"
+    },
+    {
+      "date": "2024/06/1n",
+      "id": "The_Infinitys-666-follower-on-Scratch",
+      "thumbnail": "thumbnail.svg",
+      "title": "Scratchのフォロワーが666人になりました。"
+    },
+    {
+      "date": "2024/06/19",
+      "id": "The_Infinitys-700-follower-on-Scratch",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Scratchでフォロワー700人とったどー！"
+    },
+    {
+      "date": "2024/06/19",
+      "id": "make-search-function",
+      "thumbnail": "thumbnail.png",
+      "title": "検索機能を搭載する"
+    },
+    {
+      "date": "2024/06/17",
+      "id": "news-changed-directory",
+      "thumbnail": "thumbnail.png",
+      "title": "お知らせ - ディレクトリ名が変わりました 他二つ"
+    },
+    {
+      "date": "2024/06/16",
+      "id": "SEO_4",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "SEO対策その4"
+    },
+    {
+      "date": "2024/06/16",
+      "id": "powerup-speed",
+      "thumbnail": "thumbnail.png",
+      "title": "ブログの表示が早くなりました。"
+    },
+    {
+      "date": "2024/06/15",
+      "id": "update_and_add_blog_list",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "ブログをさらに進化させる"
+    },
+    {
+      "date": "2024/06/14",
+      "id": "The-Infinitys_1st_anniversary_comming_soon",
+      "thumbnail": "thumbnail.png",
+      "title": "もう直ぐ1周年!"
+    },
+    {
+      "date": "2024/06/13",
+      "id": "enable-markdown",
+      "thumbnail": "thumbnail.png",
+      "title": "markdownでブログを書けるようにした"
+    },
+    {
+      "date": "2024/06/13",
+      "id": "to-understand-remix-culture",
+      "thumbnail": "thumbnail.png",
+      "title": "リミックス文化を理解すること"
+    },
+    {
+      "date": "2024/06/07",
+      "id": "update-blog-to-article",
+      "thumbnail": "thumbnail.png",
+      "title": "Blogを更新しました"
+    },
+    {
+      "date": "2024/06/05",
+      "id": "to-use-site-generator",
+      "thumbnail": "thumbnail.png",
+      "title": "Webサイトを作るときにサイトジェネレータを使うべきか？"
+    },
+    {
+      "date": "2024/06/04",
+      "id": "AI_technology_with_The-Infinitys",
+      "thumbnail": "thumbnail.jpg",
+      "title": "実写じゃないぞ、ロゴだぞ"
+    },
+    {
+      "date": "2024/06/03",
+      "id": "new-about-server",
+      "thumbnail": "thumbnail.png",
+      "title": "サーバーについての話"
+    },
+    {
+      "date": "2024/06/01",
+      "id": "To_all_AI_artists_who_call_themselves_AI_engineers",
+      "thumbnail": "thumbnail.png",
+      "title": "この便利な場を借りてあなたたち自称AI技師に言わせて頂きます。"
+    },
+    {
+      "date": "2024/06/01",
+      "id": "Scratch-messages-count-tool",
+      "thumbnail": "thumbnail.png",
+      "title": "Scratch messages counter"
+    }
+  ]
+}
+Year: 2024, Month: 06
+Read data from tmp/article-2024/08/articles.json: {
+  "articles": [
+    {
+      "date": "2024/08/21",
+      "id": "statistics-Infinity",
+      "thumbnail": "",
+      "title": "自分について統計取ってみた！(書き込み中)"
+    },
+    {
+      "date": "2024/08/17",
+      "id": "The-Infinitys-900-follower-on-Scratch",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "フォロワー900人突破！"
+    },
+    {
+      "date": "2024/08/13",
+      "id": "The-Infinitys-888-followers-on-Scratch",
+      "thumbnail": "thumbnail.png",
+      "title": "Scratchでフォロワー888人突破しました！"
+    },
+    {
+      "date": "2024/08/05",
+      "id": "X-editor",
+      "thumbnail": "thumbnail.svg",
+      "title": "X Editor!"
+    }
+  ]
+}
+Year: 2024, Month: 08
+Read data from tmp/article-2024/04/articles.json: {
+  "articles": [
+    {
+      "date": "2024/04/30",
+      "id": "SEO_1",
+      "thumbnail": "thumbnail.png",
+      "title": "SEO対策やってみた"
+    },
+    {
+      "date": "2024/04/26",
+      "id": "js_taiso_Infinity",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "JavaScriptで頭の体操をしよう！"
+    },
+    {
+      "date": "2024/04/23",
+      "id": "i_think_about_scratch",
+      "thumbnail": "thumbnail.png",
+      "title": "Scratchについて思うこと"
+    }
+  ]
+}
+Year: 2024, Month: 04
+Read data from tmp/article-2024/01/articles.json: {
+  "articles": []
+}
+Year: 2024, Month: 01
+Read data from tmp/article-2024/10/articles.json: {
+  "articles": [
+    {
+      "date": "2024/10/28",
+      "id": "halloweenfinity",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: Halloweenfinity(2024)"
+    },
+    {
+      "date": "2024/10/28",
+      "id": "question-from-scratch",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Scratchの質問"
+    },
+    {
+      "date": "2024/10/25",
+      "id": "cosmic-warmth",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: Cosmic Warmth"
+    },
+    {
+      "date": "2024/10/23",
+      "id": "deafer",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "何も聞かずに音楽を作ってみた"
+    },
+    {
+      "date": "2024/10/22",
+      "id": "enter",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: Enter"
+    },
+    {
+      "date": "2024/10/20",
+      "id": "over-ride",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Music: Over Ride"
+    },
+    {
+      "date": "2024/10/20",
+      "id": "moonday",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Music: Moonday"
+    },
+    {
+      "date": "2024/10/20",
+      "id": "make-audio-player",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "音楽プレイヤーを作ってみた"
+    },
+    {
+      "date": "2024/10/17",
+      "id": "Enough-is-Enough",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Music: もういいよ"
+    },
+    {
+      "date": "2024/10/16",
+      "id": "gingham-check",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "ギンガムチェック"
+    },
+    {
+      "date": "2024/10/15",
+      "id": "Scratch-Scratch-why-have-you-purged-me",
+      "thumbnail": "thumbnail.svg",
+      "title": "Scratchでの活動について"
+    },
+    {
+      "date": "2024/10/07",
+      "id": "what-do-you-want",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "パフォーマンスが落ちてきた"
+    },
+    {
+      "date": "2024/10/01",
+      "id": "create-new-font",
+      "thumbnail": "thumbnail.svg",
+      "title": "自作フォント作ってみた！"
+    }
+  ]
+}
+Year: 2024, Month: 10
+Read data from tmp/article-2024/11/articles.json: {
+  "articles": [
+    {
+      "date": "2024/11/22",
+      "id": "Infinity-Wind",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: Infinity Wind"
+    },
+    {
+      "date": "2024/11/22",
+      "id": "into-the-dark-web",
+      "thumbnail": "thumbnail.png",
+      "title": "ダークウェブの中に入ってみた！"
+    },
+    {
+      "date": "2024/11/21",
+      "id": "infinity-tool",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Infinity Tool公開！"
+    },
+    {
+      "date": "2024/11/16",
+      "id": "created-pixiv-fanbox",
+      "thumbnail": "thumbnail.png",
+      "title": "Pixiv Fanboxを開設しました！"
+    },
+    {
+      "date": "2024/11/16",
+      "id": "Epicdungeon",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: Epic Dungeon"
+    },
+    {
+      "date": "2024/11/15",
+      "id": "encourage",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Music: Encourage"
+    },
+    {
+      "date": "2024/11/15",
+      "id": "learn-vim",
+      "thumbnail": "thumbnail.png",
+      "title": "Vimエディタを学習する"
+    },
+    {
+      "date": "2024/11/14",
+      "id": "new-sounds",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: New Sounds"
+    },
+    {
+      "date": "2024/11/14",
+      "id": "dancinginfinity",
+      "thumbnail": "thumbnail.svg",
+      "title": "Dancing Infinity!"
+    },
+    {
+      "date": "2024/11/11",
+      "id": "pocky-day",
+      "thumbnail": "thumbnail.svg",
+      "title": "ポッキーの日"
+    },
+    {
+      "date": "2024/11/05",
+      "id": "micro-monster",
+      "thumbnail": "thumbnail.webp",
+      "title": "Scratchのアイコン作ってみた！"
+    },
+    {
+      "date": "2024/11/04",
+      "id": "hallo-cel",
+      "thumbnail": "thumbnail.png",
+      "title": "公式Webページ！？"
+    }
+  ]
+}
+Year: 2024, Month: 11
+Read data from tmp/article-2024/02/articles.json: {
+  "articles": []
+}
+Year: 2024, Month: 02
+Read data from tmp/article-2024/07/articles.json: {
+  "articles": [
+    {
+      "date": "2024/07/29",
+      "id": "enable-change-color-theme",
+      "thumbnail": "thumbnail.png",
+      "title": "カラーテーマを変更できるようにしました!"
+    },
+    {
+      "date": "2024/07/23",
+      "id": "share_x",
+      "thumbnail": "thumbnail.png",
+      "title": "「Xで公開する」ボタンを追加してみた！"
+    },
+    {
+      "date": "2024/07/23",
+      "id": "generate_style_wave",
+      "thumbnail": "thumbnail.png",
+      "title": "新しい背景"
+    },
+    {
+      "date": "2024/07/16",
+      "id": "create-sitemap",
+      "thumbnail": "thumbnail.svg",
+      "title": "サイトマップを自動で作成する"
+    },
+    {
+      "date": "2024/07/11",
+      "id": "start-using-devcontainer",
+      "thumbnail": "thumbnail.png",
+      "title": "DevContainer使ってみた！"
+    },
+    {
+      "date": "2024/07/10",
+      "id": "complete-making-InfinitySpirit",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Infinity Spirit Blog 完成！"
+    },
+    {
+      "date": "2024/07/06",
+      "id": "making-InfinitySpirit",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "最近ブログの更新が滞っている理由について"
+    },
+    {
+      "date": "2024/07/03",
+      "id": "jp-spirit",
+      "thumbnail": "thumbnail.png",
+      "title": "大和魂"
+    },
+    {
+      "date": "2024/07/03",
+      "id": "The_Infinitys-800-followers-on-Scratch",
+      "thumbnail": "thumbnail.png",
+      "title": "フォロワー800人！"
+    },
+    {
+      "date": "2024/07/02",
+      "id": "fujitsu_2014-icon",
+      "thumbnail": "thumbnail.webp",
+      "title": "アイコンを作って欲しいとのことで早速作りました。"
+    },
+    {
+      "date": "2024/07/02",
+      "id": "make-Infinity-ads",
+      "thumbnail": "thumbnail.svg",
+      "title": "ブログに広告を載せたい"
+    },
+    {
+      "date": "2024/07/02",
+      "id": "make-scratch-comment-emulator",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Scratch Comment emulatorを作ってみた！"
+    }
+  ]
+}
+Year: 2024, Month: 07
+Read data from tmp/article-2024/12/articles.json: {
+  "articles": [
+    {
+      "date": "2024/12/24",
+      "id": "deadline",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Music: DeadLine"
+    }
+  ]
+}
+Year: 2024, Month: 12
+Read data from tmp/article-2024/05/articles.json: {
+  "articles": [
+    {
+      "date": "2024/05/31",
+      "id": "language-support",
+      "thumbnail": "thumbnail.png",
+      "title": "Language Support"
+    },
+    {
+      "date": "2024/05/30",
+      "id": "Scratch_555_followers",
+      "thumbnail": "thumbnail.webp",
+      "title": "Scratchのフォロワー555人を迎えて"
+    },
+    {
+      "date": "2024/05/16",
+      "id": "SEO_3",
+      "thumbnail": "thumbnail.png",
+      "title": "SEO対策やってみた"
+    },
+    {
+      "date": "2024/05/16",
+      "id": "Japanese-like-font",
+      "thumbnail": "thumbnail.png",
+      "title": "日本語にしか見えないフォント"
+    },
+    {
+      "date": "2024/05/16",
+      "id": "security-probrem-of-my-homepage",
+      "thumbnail": "thumbnail.png",
+      "title": "何もしていないのにも関わらず勝手に有害サイト扱いされた件"
+    },
+    {
+      "date": "2024/05/13",
+      "id": "Scratch_500_followers",
+      "thumbnail": "thumbnail.png",
+      "title": "Scratchでフォロワー500人を迎えて"
+    },
+    {
+      "date": "2024/05/13",
+      "id": "SEO_2",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "SEOやってみた！(その2)"
+    },
+    {
+      "date": "2024/05/12",
+      "id": "make_API",
+      "thumbnail": "thumbnail.png",
+      "title": "自分でAPI(?)作ってみた！"
+    }
+  ]
+}
+Year: 2024, Month: 05
+Read data from tmp/article-2024/03/articles.json: {
+  "articles": []
+}
+Year: 2024, Month: 03
+Read data from tmp/article-2024/09/articles.json: {
+  "articles": [
+    {
+      "date": "2024/09/26",
+      "id": "through-infinity",
+      "thumbnail": "thumbnail.svg",
+      "title": "Music: Through Infinity"
+    },
+    {
+      "date": "2024/09/26",
+      "id": "about-my-activity",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Scratchでの今後の活動について"
+    },
+    {
+      "date": "2024/09/23",
+      "id": "blocked-from-scratch",
+      "thumbnail": "thumbnail.png",
+      "title": "Scratch からブロックされました(´∞ω∞)"
+    },
+    {
+      "date": "2024/09/19",
+      "id": "lets-ride-the-infinity-wave",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "乗ろうぜ！このインフィニティウェーブに！"
+    },
+    {
+      "date": "2024/09/17",
+      "id": "scratch-statistics",
+      "thumbnail": "thumbnail.jpeg",
+      "title": "Scratchの傾向について"
+    },
+    {
+      "date": "2024/09/16",
+      "id": "DeathCat",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: DeathCat"
+    },
+    {
+      "date": "2024/09/15",
+      "id": "Infinix",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: Infinix"
+    },
+    {
+      "date": "2024/09/15",
+      "id": "Sunlight-Infinity",
+      "thumbnail": "thumbnail.png",
+      "title": "Music: Sunlight Infinity"
+    },
+    {
+      "date": "2024/09/12",
+      "id": "mouse-stalker",
+      "thumbnail": "thumbnail.jpg",
+      "title": "インフィニティ、ストーカーになる"
+    },
+    {
+      "date": "2024/09/11",
+      "id": "Kokonyan-225",
+      "thumbnail": "thumbnail.webp",
+      "title": "『生物の』絵を書いてみた！"
+    },
+    {
+      "date": "2024/09/06",
+      "id": "renewal-layout",
+      "thumbnail": "thumbnail.png",
+      "title": "Webサイトのスタイルがリニューアル！"
+    }
+  ]
+}
+Year: 2024, Month: 09
+Exported combined data to export/article-data.json
