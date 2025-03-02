@@ -19,8 +19,8 @@ function NavigationMenus({ isOpen }: { isOpen: boolean }) {
       link: "/",
     },
     {
-      name: "About",
-      link: "/about",
+      name: "Article",
+      link: "/article",
     },
     {
       name: "Contact",
