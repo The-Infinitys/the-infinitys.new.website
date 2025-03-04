@@ -52,31 +52,31 @@
 
 @keyframes rainbow-background-footer {
   0% {
-    background-color: color-mix(in srgb, var(--footer-color), #f00 10%);
+    background-color: color-mix(in srgb, var(--footer-color), #f00 5%);
   }
 
   16.7% {
-    background-color: color-mix(in srgb, var(--footer-color), #ff0 10%);
+    background-color: color-mix(in srgb, var(--footer-color), #ff0 5%);
   }
 
   33.3% {
-    background-color: color-mix(in srgb, var(--footer-color), #0f0 10%);
+    background-color: color-mix(in srgb, var(--footer-color), #0f0 5%);
   }
 
   50% {
-    background-color: color-mix(in srgb, var(--footer-color), #0ff 10%);
+    background-color: color-mix(in srgb, var(--footer-color), #0ff 5%);
   }
 
   66.7% {
-    background-color: color-mix(in srgb, var(--footer-color), #00f 10%);
+    background-color: color-mix(in srgb, var(--footer-color), #00f 5%);
   }
 
   83.3% {
-    background-color: color-mix(in srgb, var(--footer-color), #f0f 10%);
+    background-color: color-mix(in srgb, var(--footer-color), #f0f 5%);
   }
 
   100% {
-    background-color: color-mix(in srgb, var(--footer-color), #f00 10%);
+    background-color: color-mix(in srgb, var(--footer-color), #f00 5%);
   }
 }
 
