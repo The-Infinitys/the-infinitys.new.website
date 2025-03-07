@@ -201,11 +201,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     log_writeline(&format!("Found {} article repos", article_repos.len()));
 
-    // 各リポジトリの特定のファイルをダウンロード
+    // 各リポジトリのアーカイブをダウンロード
     for repo in article_repos {
         log_writeline(&format!("Repo: {} - URL: {}", repo.name, repo.html_url));
-        if let Err(err) = download_specific_files(&repo, tmp_dir).await {
-            log_writeline(&format!("Failed to download specific files: {}", err));
+        if let Err(err) = download_repo_archive(&repo, tmp_dir).await {
+            log_writeline(&format!("Failed to download repo archive: {}", err));
             return Ok(()); // エラーを返さずに処理を終了
         }
     }
@@ -238,41 +238,110 @@ async fn get_github_repos(user: &str) -> Result<Vec<Repo>, ReqwestError> {
     Ok(repos)
 }
 
-// リポジトリの特定のファイルをダウンロードして tmp ディレクトリに保存
-async fn download_specific_files(
+// 新しい関数を追加
+async fn download_repo_archive(
     repo: &Repo,
     tmp_dir: &Path,
 ) -> Result<(), Box<dyn std::error::Error>> {
-    let client: reqwest::Client = reqwest::Client::new();
-    for i in 1..=12 {
-        let file_path: String = format!("{:02}/articles.json", i);
-        let url: String = format!(
-            "https://raw.githubusercontent.com/The-Infinitys/{}/main/{}",
-            repo.name, file_path
-        );
-        let response: reqwest::Response = client.get(&url).send().await?;
-        if response.status().is_success() {
-            let file_content = response.bytes().await?;
-            let file_path: PathBuf = tmp_dir.join(format!("{}/{}", repo.name, file_path));
-            if let Some(parent) = file_path.parent() {
-                fs::create_dir_all(parent)?;
+    // 一時ディレクトリが存在しない場合は作成する
+    if !tmp_dir.exists() {
+        fs::create_dir_all(tmp_dir)?;
+    }
+
+    let client = reqwest::Client::new();
+    let url = format!(
+        "https://github.com/The-Infinitys/{}/archive/refs/heads/main.zip",
+        repo.name
+    );
+    let response = client.get(&url).send().await?;
+    if response.status().is_success() {
+        let archive_content = response.bytes().await?;
+        let archive_path = tmp_dir.join(format!("{}.zip", repo.name));
+        let mut file = File::create(&archive_path)?;
+        file.write_all(&archive_content)?;
+        log_writeline(&format!(
+            "Downloaded archive {} to {:?}",
+            repo.name,
+            archive_path
+        ));
+        // アーカイブを解凍する
+        let archive_file = File::open(&archive_path)?;
+        let mut archive = zip::ZipArchive::new(archive_file)?;
+        let repo_dir = tmp_dir.join(&repo.name);
+        fs::create_dir_all(&repo_dir)?;
+        for i in 0..archive.len() {
+            let mut file = archive.by_index(i)?;
+            let outpath = repo_dir.join(
+                file.mangled_name()
+                    .components()
+                    .skip(1)
+                    .collect::<PathBuf>(),
+            );
+            if file.name().ends_with('/') {
+                fs::create_dir_all(&outpath)?;
+            } else {
+                if let Some(p) = outpath.parent() {
+                    if !p.exists() {
+                        fs::create_dir_all(&p)?;
+                    }
+                }
+                let mut outfile = File::create(&outpath)?;
+                std::io::copy(&mut file, &mut outfile)?;
             }
-            let mut file: File = File::create(&file_path)?;
-            file.write_all(&file_content)?;
-            log_writeline(&format!(
-                "Downloaded {} to {:?}",
-                file_path.display(),
-                file_path
-            ));
-        } else {
-            log_writeline(&format!(
-                "Failed to download {}: HTTP {}",
-                file_path,
-                response.status()
-            ));
+        }
+        // 解凍後にzipファイルを削除
+        fs::remove_file(&archive_path)?;
+        log_writeline(&format!("Deleted archive file {:?}", archive_path));
+
+        // 解凍されたフォルダを参照し、画像ファイルとJSONファイル以外を削除
+        clean_up_extracted_files(&repo_dir)?;
+
+    } else {
+        log_writeline(&format!(
+            "Failed to download archive {}: HTTP {}",
+            repo.name,
+            response.status()
+        ));
+    }
+    Ok(())
+}
+
+// 解凍されたフォルダを参照し、画像ファイルとJSONファイル以外を削除する関数
+fn clean_up_extracted_files(dir: &Path) -> Result<(), Box<dyn std::error::Error>> {
+    for entry_result in fs::read_dir(dir)? {
+        let entry: fs::DirEntry = entry_result?;
+        let entry_path: PathBuf = entry.path();
+        if entry_path.is_file() {
+            if !is_image_or_json_file(&entry_path) || !is_thumbnail_file(&entry_path) {
+                fs::remove_file(&entry_path)?;
+                log_writeline(&format!("Deleted file {:?}", entry_path));
+            }
+        } else if entry_path.is_dir() {
+            clean_up_extracted_files(&entry_path)?;
         }
     }
     Ok(())
+}
+
+// 画像ファイルとJSONファイルかどうかを判定する関数
+fn is_image_or_json_file(path: &Path) -> bool {
+    if let Some(extension) = path.extension() {
+        match extension.to_str().unwrap_or("").to_lowercase().as_str() {
+            "png" | "jpg" | "jpeg" | "gif" | "bmp" | "json" => true,
+            _ => false,
+        }
+    } else {
+        false
+    }
+}
+
+// ファイル名がthumbnailかどうかを判定する関数
+fn is_thumbnail_file(path: &Path) -> bool {
+    if let Some(file_name) = path.file_stem() {
+        file_name == "thumbnail"
+    } else {
+        false
+    }
 }
 
 // ログファイルにメッセージを書き込む
