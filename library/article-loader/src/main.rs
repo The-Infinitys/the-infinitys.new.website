@@ -29,7 +29,14 @@ fn read_json_files(
     for entry_result in fs::read_dir(dir)? {
         let entry: fs::DirEntry = entry_result?;
         let entry_path: PathBuf = entry.path();
+        log_writeline(&format!("Reading entry: {:?}", entry_path));
         if entry_path.is_file() {
+            // 拡張子がjson以外のファイルを無視
+            if entry_path.extension().and_then(|ext| ext.to_str()) != Some("json") {
+                log_writeline(&format!("Skipping non-json file: {:?}", entry_path));
+                continue;
+            }
+
             let file: File = File::open(&entry_path)?;
             let data: serde_json::Value = serde_json::from_reader(file)?;
             let formatted_data: String = serde_json::to_string_pretty(&data)?;
@@ -83,6 +90,46 @@ fn read_json_files(
             log_writeline(&format!("Skipping non-file entry: {:?}", entry_path));
         }
     }
+    Ok(())
+}
+
+// 処理の最終段階
+fn finalize(tmp_dir: &Path, export_dir: &Path) -> Result<(), Box<dyn std::error::Error>> {
+    // articles.jsonファイルを全て削除
+    for entry_result in fs::read_dir(tmp_dir)? {
+        let entry: fs::DirEntry = entry_result?;
+        let entry_path: PathBuf = entry.path();
+        if entry_path.is_file() && entry_path.file_name().unwrap_or_default() == "articles.json" {
+            fs::remove_file(&entry_path).map_err(|err| {
+                log_writeline(&format!("Failed to delete articles.json file {:?}: {}", entry_path, err));
+                err
+            })?;
+            log_writeline(&format!("Deleted articles.json file {:?}", entry_path));
+        }
+    }
+
+    // exportディレクトリが存在しない場合は作成する
+    if !export_dir.exists() {
+        fs::create_dir_all(export_dir).map_err(|err| {
+            log_writeline(&format!("Failed to create export directory: {}", err));
+            err
+        })?;
+    }
+
+    // 取得したアーカイブを全てexportに移動
+    for entry_result in fs::read_dir(tmp_dir)? {
+        let entry: fs::DirEntry = entry_result?;
+        let entry_path: PathBuf = entry.path();
+        if entry_path.is_dir() {
+            let dest_path = export_dir.join(entry_path.file_name().unwrap_or_default());
+            fs::rename(&entry_path, &dest_path).map_err(|err| {
+                log_writeline(&format!("Failed to move directory {:?} to {:?}: {}", entry_path, dest_path, err));
+                err
+            })?;
+            log_writeline(&format!("Moved directory {:?} to {:?}", entry_path, dest_path));
+        }
+    }
+
     Ok(())
 }
 
@@ -209,17 +256,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             return Ok(()); // エラーを返さずに処理を終了
         }
     }
-
+    log_writeline("Downloaded all repo archives");
     // すべてのJSONファイルを読み取り、データを一つにまとめる
     let mut combined_data: BTreeMap<String, BTreeMap<String, Vec<Value>>> = BTreeMap::new();
     read_json_files(tmp_dir, &mut combined_data)?;
-
+    log_writeline("Combined all data");
     // 結合されたデータをJSONファイルに書き込む
     let export_path: &Path = Path::new("export/article-data.json");
     let export_file: File = File::create(export_path)?;
     serde_json::to_writer_pretty(export_file, &combined_data)?;
-
     log_writeline("Exported combined data to export/article-data.json");
+
+    // 処理の最終段階
+    finalize(tmp_dir, Path::new("export"))?;
 
     Ok(())
 }
@@ -244,8 +293,11 @@ async fn download_repo_archive(
     tmp_dir: &Path,
 ) -> Result<(), Box<dyn std::error::Error>> {
     // 一時ディレクトリが存在しない場合は作成する
-    if !tmp_dir.exists() {
-        fs::create_dir_all(tmp_dir)?;
+    if (!tmp_dir.exists()) {
+        fs::create_dir_all(tmp_dir).unwrap_or_else(|err| {
+            log_writeline(&format!("Failed to create tmp directory: {}", err));
+            panic!("Failed to create tmp directory: {}", err);
+        });
     }
 
     let client = reqwest::Client::new();
@@ -253,24 +305,48 @@ async fn download_repo_archive(
         "https://github.com/The-Infinitys/{}/archive/refs/heads/main.zip",
         repo.name
     );
-    let response = client.get(&url).send().await?;
+    let response = client.get(&url).send().await.unwrap_or_else(|err| {
+        log_writeline(&format!("Failed to send request to {}: {}", url, err));
+        panic!("Failed to send request to {}: {}", url, err);
+    });
     if response.status().is_success() {
-        let archive_content = response.bytes().await?;
+        let archive_content = response.bytes().await.unwrap_or_else(|err| {
+            log_writeline(&format!("Failed to read response bytes: {}", err));
+            panic!("Failed to read response bytes: {}", err);
+        });
         let archive_path = tmp_dir.join(format!("{}.zip", repo.name));
-        let mut file = File::create(&archive_path)?;
-        file.write_all(&archive_content)?;
+        let mut file = File::create(&archive_path).unwrap_or_else(|err| {
+            log_writeline(&format!("Failed to create archive file: {}", err));
+            panic!("Failed to create archive file: {}", err);
+        });
+        file.write_all(&archive_content).unwrap_or_else(|err| {
+            log_writeline(&format!("Failed to write to archive file: {}", err));
+            panic!("Failed to write to archive file: {}", err);
+        });
         log_writeline(&format!(
             "Downloaded archive {} to {:?}",
             repo.name,
             archive_path
         ));
         // アーカイブを解凍する
-        let archive_file = File::open(&archive_path)?;
-        let mut archive = zip::ZipArchive::new(archive_file)?;
+        let archive_file = File::open(&archive_path).unwrap_or_else(|err| {
+            log_writeline(&format!("Failed to open archive file: {}", err));
+            panic!("Failed to open archive file: {}", err);
+        });
+        let mut archive = zip::ZipArchive::new(archive_file).unwrap_or_else(|err| {
+            log_writeline(&format!("Failed to read archive: {}", err));
+            panic!("Failed to read archive: {}", err);
+        });
         let repo_dir = tmp_dir.join(&repo.name);
-        fs::create_dir_all(&repo_dir)?;
+        fs::create_dir_all(&repo_dir).map_err(|err| {
+            log_writeline(&format!("Failed to create repo directory: {}", err));
+            err
+        })?;
         for i in 0..archive.len() {
-            let mut file = archive.by_index(i)?;
+            let mut file = archive.by_index(i).map_err(|err| {
+                log_writeline(&format!("Failed to access file in archive: {}", err));
+                err
+            })?;
             let outpath = repo_dir.join(
                 file.mangled_name()
                     .components()
@@ -278,19 +354,34 @@ async fn download_repo_archive(
                     .collect::<PathBuf>(),
             );
             if file.name().ends_with('/') {
-                fs::create_dir_all(&outpath)?;
+                fs::create_dir_all(&outpath).map_err(|err| {
+                    log_writeline(&format!("Failed to create directory: {}", err));
+                    err
+                })?;
             } else {
                 if let Some(p) = outpath.parent() {
                     if !p.exists() {
-                        fs::create_dir_all(&p)?;
+                        fs::create_dir_all(&p).map_err(|err| {
+                            log_writeline(&format!("Failed to create parent directory: {}", err));
+                            err
+                        })?;
                     }
                 }
-                let mut outfile = File::create(&outpath)?;
-                std::io::copy(&mut file, &mut outfile)?;
+                let mut outfile = File::create(&outpath).map_err(|err| {
+                    log_writeline(&format!("Failed to create output file: {}", err));
+                    err
+                })?;
+                std::io::copy(&mut file, &mut outfile).map_err(|err| {
+                    log_writeline(&format!("Failed to copy file: {}", err));
+                    err
+                })?;
             }
         }
         // 解凍後にzipファイルを削除
-        fs::remove_file(&archive_path)?;
+        fs::remove_file(&archive_path).map_err(|err| {
+            log_writeline(&format!("Failed to delete archive file: {}", err));
+            err
+        })?;
         log_writeline(&format!("Deleted archive file {:?}", archive_path));
 
         // 解凍されたフォルダを参照し、画像ファイルとJSONファイル以外を削除
@@ -313,11 +404,20 @@ fn clean_up_extracted_files(dir: &Path) -> Result<(), Box<dyn std::error::Error>
         let entry_path: PathBuf = entry.path();
         if entry_path.is_file() {
             if !is_image_or_json_file(&entry_path) || !is_thumbnail_file(&entry_path) {
-                fs::remove_file(&entry_path)?;
-                log_writeline(&format!("Deleted file {:?}", entry_path));
+                if entry_path.file_name().unwrap_or_default() != "articles.json" {
+                    if let Err(err) = fs::remove_file(&entry_path) {
+                        log_writeline(&format!("Failed to delete file {:?}: {}", entry_path, err));
+                        panic!("Failed to delete file {:?}: {}", entry_path, err);
+                    } else {
+                        log_writeline(&format!("Deleted file {:?}", entry_path));
+                    }
+                }
             }
         } else if entry_path.is_dir() {
-            clean_up_extracted_files(&entry_path)?;
+            if let Err(err) = clean_up_extracted_files(&entry_path) {
+                log_writeline(&format!("Failed to clean up directory {:?}: {}", entry_path, err));
+                panic!("Failed to clean up directory {:?}: {}", entry_path, err);
+            }
         }
     }
     Ok(())
