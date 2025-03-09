@@ -1,0 +1,11 @@
+#!/bin/bash
+
+CURRENT=$(cd $(dirname $0);pwd)
+cd $CURRENT
+cd library
+cd article-loader
+cargo run
+rm -rf ../../public/article/database/*
+mv  ./export/* ../../public/article/database/
+cd $CURRENT
+npm run build

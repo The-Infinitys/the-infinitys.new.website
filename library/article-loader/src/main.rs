@@ -293,7 +293,7 @@ async fn download_repo_archive(
     tmp_dir: &Path,
 ) -> Result<(), Box<dyn std::error::Error>> {
     // 一時ディレクトリが存在しない場合は作成する
-    if (!tmp_dir.exists()) {
+    if !tmp_dir.exists() {
         fs::create_dir_all(tmp_dir).unwrap_or_else(|err| {
             log_writeline(&format!("Failed to create tmp directory: {}", err));
             panic!("Failed to create tmp directory: {}", err);
