@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   images: {
-    unoptimize: true,
+    unoptimized: true,
   },
 };
 
