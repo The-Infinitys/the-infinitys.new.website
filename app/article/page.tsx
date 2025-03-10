@@ -78,7 +78,7 @@ export default async function Page() {
                     {articleData[year][month] &&
                       articleData[year][month].map((article: Article) => {
                         const article_path: string = `/article-${year}/${month}/${article.id}`;
-                        const thumb_path: string = `../../public/article/database/article-${year}/${month}/${article.id}/${article.thumbnail}`;
+                        const thumb_path: string = `public/article/database/article-${year}/${month}/${article.id}/${article.thumbnail}`;
                         const image_data = getImageData(thumb_path);
                         return (
                           <div key={article.id}>
