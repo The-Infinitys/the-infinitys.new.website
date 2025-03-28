@@ -315,7 +315,7 @@ async fn download_repo_archive(
     tmp_dir: &Path,
 ) -> Result<(), Box<dyn std::error::Error>> {
     // 一時ディレクトリが存在しない場合は作成する
-    if (!tmp_dir.exists()) {
+    if !tmp_dir.exists() {
         fs::create_dir_all(tmp_dir).unwrap_or_else(|err| {
             log_writeline(&format!("Failed to create tmp directory: {}", err));
             panic!("Failed to create tmp directory: {}", err);
@@ -424,7 +424,8 @@ fn clean_up_extracted_files(dir: &Path) -> Result<(), Box<dyn std::error::Error>
         let entry_path: PathBuf = entry.path();
         if entry_path.is_file() {
             if !is_image_or_json_file(&entry_path) && !is_thumbnail_file(&entry_path) {
-                if entry_path.file_name().unwrap_or_default() != "articles.json" {
+                if entry_path.file_name().unwrap_or_default() != "articles.json" &&
+                entry_path.file_name().unwrap_or_default() != "article-data.json" {
                     if let Err(err) = fs::remove_file(&entry_path) {
                         log_writeline(&format!("Failed to delete file {:?}: {}", entry_path, err));
                         panic!("Failed to delete file {:?}: {}", entry_path, err);
